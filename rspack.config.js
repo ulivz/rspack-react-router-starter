@@ -6,6 +6,9 @@ module.exports = {
   entry: {
     main: "./src/main.jsx",
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   builtins: {
     html: [
       {
