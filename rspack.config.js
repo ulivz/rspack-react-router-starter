@@ -1,6 +1,8 @@
 /**
  * @type {import('@rspack/cli').Configuration}
  */
+const rspack = require('@rspack/core')
+
 module.exports = {
   context: __dirname,
   entry: {
@@ -8,13 +10,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-  },
-  builtins: {
-    html: [
-      {
-        template: "./index.html",
-      },
-    ],
   },
   module: {
     rules: [
@@ -24,4 +19,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new rspack.HtmlRspackPlugin({
+      template: "./index.html",
+    }),
+  ]
 };
